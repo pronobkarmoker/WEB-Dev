@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+
+        <!-- LIST -->
+        <ul>
+            <li>Apple</li>
+                <ul>
+                    <li>colour: red</li>
+                    <li>price: 160tk</li>
+                </ul>
+            <li>mango</li>
+            <li>lichi</li>
+        </ul>
+        <ol>
+            <li>shuvo</li>
+                <ol>
+                    <li>IIT</li>
+                     <li>DU</li>
+            
+                </ol>
+
+            <li>rabby</li>
+            <li>nafi</li>
+        </ol>
+
+        <!-- TABLE -->
+
+        <table>
+
+            <thead>
+
+            <caption>student data</caption>
+            <tr>
+                <th>name</th>
+                <th>roll</th>
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            <tr>
+                <td>shuvo</td>
+                <td>1431</td>
+            </tr>
+            <tr>
+                <td>toma</td>
+                <td>1432</td>
+            </tr>
+        </tbody>
+
+        </table>
+<hr>
+        <!-- COLSPAN -->
+        <table>
+
+            <thead>
+
+            <caption>student data</caption>
+            <tr>
+                <th colspan="2">info</th>
+                
+            </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            <tr>
+                <td>shuvo</td>
+                <td>1431</td>
+            </tr>
+            <tr>
+                <td>toma</td>
+                <td>1432</td>
+            </tr>
+        </tbody>
+        
+        </table>
+<hr>
+        <!-- FORM -->
+        <h1>REGESTRATION FORM</h1>
+        <form actionn ="/action.php">
+            <input type="text" placeholder="username">
+            <br/>
+            <input type="password" placeholder="password">
+            <br/>
+            <h1>select your dept.</h1>
+            <label for ="101">
+            <input type="radio" value="IIT" name="subject" id="101">IIT
+            </label>
+            <br/>
+            <label for ="102">
+            <input type="radio" value="CSE" name="subject" id="102">CSE
+            </label>
+         <hr>
+            <h1>select your subject</h1>
+         <label for="math">
+            <input type="checkbox" value="math" name="subject" id="101">math
+         </label>
+         <br/>
+         <label for="phy">
+            <input type="checkbox" value="phy" name="subject" id="102">phy
+         </label>
+         <br/>
+         <label for="chem">
+            <input type="checkbox" value="chem" name="subject" id="103">chem
+         </label>
+         <br/>
+         <label for="bio">
+            <input type="checkbox" value="bio" name="subject" id="104">bio
+         </label>
+         <hr>
+
+         <!-- SELECT -->
+         <h1>SELECT YOUR CITY</h1>
+         <select name="city">
+            <option value="gaibandha">gaibandha</option>
+            <option value="dhaka">dhaka</option>
+            <option value="nouga">nouga</option>
+            <option value="bogura">bogura</option>
+           
+         </select>
+         <hr>
+         <!-- FOR FEEDBACK -->
+
+         <textarea name="feedback" id="101" placeholder="please give your valuable feedback here"rows ="5"></textarea>
+
+         <br/>
+        <!-- SUBMIIT -->
+         <input type="submit" value="submit">
+
+        </form>
+
+        <hr>
+
+        <!-- IFRAME (website innside website (copy from apna  college's video embed option)) -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HcOc7P5BMi4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <br><br>
+        <!-- this is wikipedia link -->
+        <iframe width="560" height="315" src ="https://www.wikipedia.org/"></iframe>
+
+        <hr>
+
+        <!-- video tag -->
+        <video width="560" height="315" src="/IIT,du.mp4" controls loops>IIT,DU</video>
+
+        <hr>
+    </main>
+    <footer></footer>
+</body>
+</html>
