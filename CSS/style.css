@@ -1,0 +1,31 @@
+h1{
+    color : red;
+}
+#headingone{
+    color: palevioletred;
+}
+#headingtwo{
+    color: coral;
+}
+
+p{
+    color: rgb(20, 216, 46);
+    
+}
+
+button{
+    color: rgb(153, 23, 245);
+    background-color: rgb(7, 7, 7);
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.myclass{
+    color: purple;
+}
+
+#align {
+    text-align: center;
+}
