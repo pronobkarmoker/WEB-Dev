@@ -32,9 +32,20 @@ let num2 = [12,13,14,15,16,11,19,18]
 let newArray = num.concat(num2)
 console.log(newArray) 
 
-// sort method
+// sort method alphabetically
 let num4 = [122,513,146,15,16,11,19,18]
 num4.sort()
 console.log(num4)
 
-//
+// reverse
+num.reverse()
+console.log(num)
+
+// Splice & slice
+let num5 = [12,13,14,15,16,11,19,18]
+let deletedvalue = num5.splice(2,3,1091,1010,1034) // ( index , num of dlt , which num have to add)
+console.log(num5)
+console.log(deletedvalue)
+
+let newnum = num5.slice(3)
+console.log(newnum)
