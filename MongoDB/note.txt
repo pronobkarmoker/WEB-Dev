@@ -1,0 +1,203 @@
+PS C:\Users\Shuvo> mongod --version
+db version v8.0.4
+Build Info: {
+    "version": "8.0.4",
+    "gitVersion": "bc35ab4305d9920d9d0491c1c9ef9b72383d31f9",
+    "modules": [],
+    "allocator": "tcmalloc-gperf",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+PS C:\Users\Shuvo> mongosh
+Current Mongosh Log ID: 678c1a15fb6e854addcb0ce1
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.8
+Using MongoDB:          8.0.4
+Using Mongosh:          2.3.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2025-01-19T03:10:11.450+06:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   40.00 KiB
+test> show dbs
+admin     40.00 KiB
+config   108.00 KiB
+local     40.00 KiB
+student   40.00 KiB
+test> show dbs
+admin    40.00 KiB
+config   96.00 KiB
+local    40.00 KiB
+student  48.00 KiB
+test> use student
+switched to db student
+student> db.inventory.insertOne({
+...     item: "canvas",qty: 100 , tags: ["cotton"],size: {h:28 , w:35.5}
+... })
+{
+  acknowledged: true,
+  insertedId: ObjectId('678c29c2fb6e854addcb0ce2')
+}
+student> db.inventory.insertOne({ item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5 } })
+{
+  acknowledged: true,
+  insertedId: ObjectId('678c2a09fb6e854addcb0ce3')
+}
+student> db.inventory.insertMany([{
+...     item: "canvas1",qty: 1200 , tags: ["cotton"],size: {h:281 , w:35.54}},
+...     {item: "canvas2",qty: 1100 , tags: ["cotton"],size: {h:128 , w:345.5}},
+...     {item: "canvas3",qty: 34100 , tags: ["cotton"],size: {h:928 , w:335.5}},
+...     {item: "canvas4",qty: 1050 , tags: ["cotton"],size: {h:278 , w:351.5}},
+...     {item: "canvas5",qty: 1070 , tags: ["cotton"],size: {h:258 , w:325.5}
+... }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('678c2b85fb6e854addcb0ce4'),
+    '1': ObjectId('678c2b85fb6e854addcb0ce5'),
+    '2': ObjectId('678c2b85fb6e854addcb0ce6'),
+    '3': ObjectId('678c2b85fb6e854addcb0ce7'),
+    '4': ObjectId('678c2b85fb6e854addcb0ce8')
+  }
+}
+
+student> db.inventory.find()
+[
+  {
+    _id: ObjectId('678c29c2fb6e854addcb0ce2'),
+    item: 'canvas',
+    qty: 100,
+    tags: [ 'cotton' ],
+    size: { h: 28, w: 35.5 }
+  },
+  {
+    _id: ObjectId('678c2a09fb6e854addcb0ce3'),
+    item: 'canvas',
+    qty: 100,
+    tags: [ 'cotton' ],
+    size: { h: 28, w: 35.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce4'),
+    item: 'canvas1',
+    qty: 1200,
+    tags: [ 'cotton' ],
+    size: { h: 281, w: 35.54 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce5'),
+    item: 'canvas2',
+    qty: 1100,
+    tags: [ 'cotton' ],
+    size: { h: 128, w: 345.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce6'),
+    item: 'canvas3',
+    qty: 34100,
+    tags: [ 'cotton' ],
+    size: { h: 928, w: 335.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce7'),
+    item: 'canvas4',
+    qty: 1050,
+    tags: [ 'cotton' ],
+    size: { h: 278, w: 351.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce8'),
+    item: 'canvas5',
+    qty: 1070,
+    tags: [ 'cotton' ],
+    size: { h: 258, w: 325.5 }
+  }
+]
+
+student> db.inventory.find({qty:1100})
+[
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce5'),
+    item: 'canvas2',
+    qty: 1100,
+    tags: [ 'cotton' ],
+    size: { h: 128, w: 345.5 }
+  }
+]
+
+student> db.inventory.updateOne({
+...     item: "canvas"},{
+...         $set: { tags: "p"},
+...         $currentDate : {lastModified: true}
+... })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+student> db.inventory.deleteOne({item: "canvas4"})
+{ acknowledged: true, deletedCount: 1 }
+
+student> db.inventory.find().sort({qty: 1})
+[
+  {
+    _id: ObjectId('678c29c2fb6e854addcb0ce2'),
+    item: 'canvas',
+    qty: 100,
+    tags: 'p',
+    size: { h: 28, w: 35.5 },
+    lastModified: ISODate('2025-01-18T23:07:09.324Z')
+  },
+  {
+    _id: ObjectId('678c2a09fb6e854addcb0ce3'),
+    item: 'canvas',
+    qty: 100,
+    tags: [ 'cotton' ],
+    size: { h: 28, w: 35.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce8'),
+    item: 'canvas5',
+    qty: 1070,
+    tags: [ 'cotton' ],
+    size: { h: 258, w: 325.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce5'),
+    item: 'canvas2',
+    qty: 1100,
+    tags: [ 'cotton' ],
+    size: { h: 128, w: 345.5 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce4'),
+    item: 'canvas1',
+    qty: 1200,
+    tags: [ 'cotton' ],
+    size: { h: 281, w: 35.54 }
+  },
+  {
+    _id: ObjectId('678c2b85fb6e854addcb0ce6'),
+    item: 'canvas3',
+    qty: 34100,
+    tags: [ 'cotton' ],
+    size: { h: 928, w: 335.5 }
+  }
+]
+
