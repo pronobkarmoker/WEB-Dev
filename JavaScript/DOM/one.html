@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful HTML page with various attributes">
+    <meta name="author" content="Shuvo">
+    <meta name="keywords" content="HTML, DOM, attributes, web development">
+    <title>DOM</title>
+    
+    <style>
+        .bg {
+            background-color: #212121;
+            color : #fff;
+        }
+    </style>
+</head>
+
+<body class= "bg">
+    
+    <header id="main-header" class="header" style="padding: 20px;">
+        <h1 class="title" tabindex="0">Welcome </h1>
+        <nav>
+            <ul class="nav-list" role="navigation">
+                <li><a href="#section1" title="Go to Section 1">Section 1</a></li>
+                <li><a href="#section2" title="Go to Section 2">Section 2</a></li>
+                <li><a href="#section3" title="Go to Section 3">Section 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section1" class="content-section" data-section="1">
+            <h2>Section 1</h2>
+            <p>This is the first section of the page. It contains some <strong>important</strong> information.</p>
+            <img src="html.png" alt="A descriptive image" width="300" height="200" loading="lazy">
+        </section>
+
+        <section id="section2" class="content-section" data-section="2">
+            <h2>Section 2</h2>
+            <p>This is the second section. It includes a list:</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </section>
+
+        <section id="section3" class="content-section" data-section="3">
+            <h2>Section 3</h2>
+            <p>Here is a form for user input:</p>
+            <form action="/submit" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer" style="text-align: center; padding: 10px; background-color: #333; color: #fff;">
+        <p>Shuvo.</p>
+        <a href="https://pronob-karmoker.vercel.app/" target="_blank" rel="noopener noreferrer">Visit our website</a>
+    </footer>
+
+    <ul class="lang">
+        <li>js</li>
+    </ul>
+
+</body>
+<script>
+    const div = document.createElement('div');
+    div.className = 'bg';
+    div.id = Math.random().toString(36).substring(2, 15);
+    div.setAttribute('data-custom', 'customValue');
+    <!-- div.textContent = 'This is a dynamically created div element.'; -->
+    div.style.color = 'white';
+    div.style.backgroundColor = 'greenr';
+    div.style.padding = '10px';
+    div.style.margin = '10px 0';
+    div.innerText = 'This is a dynamically created div element.';
+    document.body.appendChild(div);
+
+    function addlang(lang){
+        const li = document.createElement('li');
+        li.innerHTML= `${lang}`;
+        document.querySelector('.lang').appendChild(li);
+
+    }
+    addlang('html');
+    addlang('css'); 
+    addlang('python');
+    addlang('java');
+    addlang('c++');
+    addlang('c#');
+    addlang('php');
+    addlang('ruby');
+    addlang('swift');
+    addlang('go');
+    addlang('kotlin');
+    addlang('typescript');
+    addlang('rust');
+    addlang('dart');
+    addlang('scala');
+    addlang('elixir');
+    addlang('haskell');
+
+    const lastLang = document.querySelector('.lang li:last-child');
+    lastLang.remove();
+
+</script>
+</html>
